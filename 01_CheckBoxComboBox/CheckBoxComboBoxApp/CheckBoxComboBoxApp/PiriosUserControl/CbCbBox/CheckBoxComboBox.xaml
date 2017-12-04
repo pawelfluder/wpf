@@ -13,8 +13,8 @@
             <DataTemplate>
                 <CheckBox 
                     Content="{Binding LineTitle}"
-                    Command="{Binding DataContext.BtnClickCmd,RelativeSource={RelativeSource FindAncestor,ScrollViewer,1}}"
-                    CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
+                    IsChecked="{Binding Path=IsSelected, Mode=TwoWay}"
+                    Click="CheckBox_Click"
                 />
             </DataTemplate>
         </ComboBox.ItemTemplate>

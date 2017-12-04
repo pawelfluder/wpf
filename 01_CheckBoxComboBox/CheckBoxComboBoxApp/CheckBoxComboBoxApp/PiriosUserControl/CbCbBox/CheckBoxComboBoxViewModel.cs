@@ -4,6 +4,11 @@ namespace CheckBoxComboBoxApp.PiriosUserControl.CbCbBox
 {
     class CheckBoxComboBoxViewModel
     {
+        public CheckBoxComboBoxViewModel()
+        {
+            
+        }
+
         public ICommand btnClickCmd;
 
         public ICommand BtnClickCmd
@@ -16,13 +21,9 @@ namespace CheckBoxComboBoxApp.PiriosUserControl.CbCbBox
             }
         }
 
-        private void SetBtnClickCmd()
+        private void CheckBox_Click(object sender)
         {
-            btnClickCmd = new RelayCommand<object>(o => CheckBox_Click(o));
-        }
-
-        private void CheckBox_Click(object obj)
-        {
+           
         }
     }
 }
