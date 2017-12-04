@@ -55,7 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="PiriosUserControl\CbCbBox\CheckBoxComboBoxViewModel.cs" />
     <Compile Include="PiriosUserControl\CbCbBox\PopupListOneLine.cs" />
+    <Compile Include="PiriosUserControl\RelayCommand.cs" />
     <Compile Include="ViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

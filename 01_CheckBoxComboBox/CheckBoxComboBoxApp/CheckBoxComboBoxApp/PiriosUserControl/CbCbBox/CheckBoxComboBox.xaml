@@ -2,14 +2,19 @@
     x:Class="CheckBoxComboBoxApp.PiriosUserControl.CbCbBox.CheckBoxComboBox"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
->
+    xmlns:cbCbBox="clr-namespace:CheckBoxComboBoxApp.PiriosUserControl.CbCbBox">
     <ComboBox
         x:Name="MainComboBox"
     >
+        <ComboBox.DataContext>
+            <cbCbBox:CheckBoxComboBoxViewModel/>
+        </ComboBox.DataContext>
         <ComboBox.ItemTemplate>
             <DataTemplate>
                 <CheckBox 
                     Content="{Binding LineTitle}"
+                    Command="{Binding DataContext.BtnClickCmd,RelativeSource={RelativeSource FindAncestor,ScrollViewer,1}}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
                 />
             </DataTemplate>
         </ComboBox.ItemTemplate>
