@@ -2,9 +2,17 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         
-        xmlns:cbCbBox="clr-namespace:CheckBoxComboBoxApp.PiriosUserControl.CbCbBox">
+        xmlns:cbCbBox="clr-namespace:CheckBoxComboBoxApp.PiriosUserControl.CbCbBox"
+        xmlns:checkBoxComboBoxApp="clr-namespace:CheckBoxComboBoxApp">
+    <Window.Resources>
+        <checkBoxComboBoxApp:ViewModel 
+            x:Key="ViewModel"
+            />
+    </Window.Resources>
     <Grid>
         <cbCbBox:CheckBoxComboBox
+            DataContext="{Binding Source={StaticResource ViewModel}}"
+            ItemsSource="{Binding Items}"
             Height="50"
             Width="200"
             />

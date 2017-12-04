@@ -6,24 +6,36 @@
     <ComboBox
         x:Name="MainComboBox"
     >
+        <ComboBox.ItemTemplate>
+            <DataTemplate>
+                <CheckBox 
+                    Content="{Binding LineTitle}"
+                />
+            </DataTemplate>
+        </ComboBox.ItemTemplate>
         <ComboBox.Template>
             <ControlTemplate TargetType="ComboBox">
-                <Grid >
-                    <ToggleButton
+                <Grid>
+                    <ToggleButton 
                         IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
                     >
                     </ToggleButton>
-                    <Popup                      
-                        AllowsTransparency="True"
+                    <Popup 
+                        AllowsTransparency="True" 
+                        Focusable="False"  
                         IsOpen="{TemplateBinding IsDropDownOpen}"
                     >
-                        <Grid
-                            MinHeight="100"
-                            MinWidth="{TemplateBinding ActualWidth}"
-                        >
-                            <Border
+                        <Grid   
+                            MinWidth="{TemplateBinding ActualWidth}">
+                            <Border 
                                 BorderThickness="1"
                                 BorderBrush="Black"/>
+                            <ScrollViewer 
+                                MinHeight="100">
+                                <StackPanel 
+                                    IsItemsHost="True" 
+                                />
+                            </ScrollViewer>
                         </Grid>
                     </Popup>
                 </Grid>
