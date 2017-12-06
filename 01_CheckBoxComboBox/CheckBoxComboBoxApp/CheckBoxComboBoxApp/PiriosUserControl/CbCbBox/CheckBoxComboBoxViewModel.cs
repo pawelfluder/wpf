@@ -2,7 +2,7 @@
 
 namespace CheckBoxComboBoxApp.PiriosUserControl.CbCbBox
 {
-    class CheckBoxComboBoxViewModel
+    public class CheckBoxComboBoxViewModel
     {
         public CheckBoxComboBoxViewModel()
         {

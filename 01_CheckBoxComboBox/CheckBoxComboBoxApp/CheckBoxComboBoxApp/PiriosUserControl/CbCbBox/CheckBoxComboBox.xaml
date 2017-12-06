@@ -1,5 +1,4 @@
-﻿<UserControl 
-    x:Class="CheckBoxComboBoxApp.PiriosUserControl.CbCbBox.CheckBoxComboBox"
+﻿<UserControl x:Class="CheckBoxComboBoxApp.PiriosUserControl.CbCbBox.CheckBoxComboBox"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cbCbBox="clr-namespace:CheckBoxComboBoxApp.PiriosUserControl.CbCbBox">
@@ -14,7 +13,8 @@
                 <CheckBox 
                     Content="{Binding LineTitle}"
                     IsChecked="{Binding Path=IsSelected, Mode=TwoWay}"
-                    Click="CheckBox_Click"
+                    Command="{Binding DataContext.BtnClickCmd,RelativeSource={RelativeSource FindAncestor,ScrollViewer,1}}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
                 />
             </DataTemplate>
         </ComboBox.ItemTemplate>
