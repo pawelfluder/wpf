@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Input;
+using CheckBoxComboBoxApp.PiriosUserControl;
 
 namespace CheckBoxComboBoxApp
 {
@@ -13,6 +15,22 @@ namespace CheckBoxComboBoxApp
             Items.Add("Trichy", "TPJ");
             Items.Add("Bangalore", "SBC");
             Items.Add("Coimbatore", "CBE");
+        }
+
+        public ICommand addContactsToGroupCommand;
+
+        public ICommand AddContactsToGroupCommand
+        {
+            get
+            {
+                if (addContactsToGroupCommand == null)
+                    addContactsToGroupCommand = new RelayCommand<object>(o => CheckBox_Click(o));
+                return addContactsToGroupCommand;
+            }
+        }
+
+        void CheckBox_Click(object obj)
+        {
         }
     }
 }

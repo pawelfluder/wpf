@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace CheckBoxComboBoxApp.PiriosUserControl.CbCbBox
 {
@@ -23,7 +25,10 @@ namespace CheckBoxComboBoxApp.PiriosUserControl.CbCbBox
 
         public Dictionary<string, object> ItemsSource
         {
-            get { return (Dictionary<string, object>)GetValue(ItemsSourceProperty); }
+            get
+            {
+                return (Dictionary<string, object>)GetValue(ItemsSourceProperty);
+            }
             set
             {
                 SetValue(ItemsSourceProperty, value);
@@ -34,6 +39,20 @@ namespace CheckBoxComboBoxApp.PiriosUserControl.CbCbBox
         {
             CheckBoxComboBox control = (CheckBoxComboBox)d;
             control.InitializePopupList();
+        }
+
+        public static readonly DependencyProperty SaveCommandProperty = DependencyProperty.Register("SaveCommand", typeof(ICommand),
+            typeof(CheckBoxComboBox), new PropertyMetadata(null, OnSaveCommandChanged));
+
+        private static void OnSaveCommandChanged(DependencyObject a_d, DependencyPropertyChangedEventArgs a_args)
+        {
+            ((CheckBoxComboBox)a_d).RaisePropertyChanged("SaveCommand");
+        }
+
+        public ICommand SaveCommand
+        {
+            get { return (ICommand)GetValue(SaveCommandProperty); }
+            set { SetValue(SaveCommandProperty, value); }
         }
 
         private void InitializePopupList()
@@ -70,6 +89,16 @@ namespace CheckBoxComboBoxApp.PiriosUserControl.CbCbBox
                         node.IsSelected = false;
                     }
                 }                
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void RaisePropertyChanged(string a_propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(a_propertyName));
             }
         }
     }

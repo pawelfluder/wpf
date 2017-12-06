@@ -10,6 +10,7 @@ namespace CheckBoxComboBoxApp
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new ViewModel();
         }
     }
 }

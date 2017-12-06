@@ -5,14 +5,14 @@
         xmlns:cbCbBox="clr-namespace:CheckBoxComboBoxApp.PiriosUserControl.CbCbBox"
         xmlns:checkBoxComboBoxApp="clr-namespace:CheckBoxComboBoxApp">
     <Window.Resources>
-        <checkBoxComboBoxApp:ViewModel 
+        <!--<checkBoxComboBoxApp:ViewModel 
             x:Key="ViewModel"
-            />
+            />-->
     </Window.Resources>
-    <Grid>
+    <Grid x:Name="ContactsBtnPanel">
         <cbCbBox:CheckBoxComboBox
-            DataContext="{Binding Source={StaticResource ViewModel}}"
             ItemsSource="{Binding Items}"
+            SaveCommand="{Binding Path=DataContext.AddContactsToGroupCommand, ElementName=ContactsBtnPanel}"
             Height="50"
             Width="200"
             />
