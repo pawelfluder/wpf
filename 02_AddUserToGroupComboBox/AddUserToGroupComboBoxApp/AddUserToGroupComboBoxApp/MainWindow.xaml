@@ -1,0 +1,17 @@
+﻿<Window x:Class="AddUserToGroupComboBoxApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:customControls="clr-namespace:Collection.CustomControls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel x:Name="UserBtnPanel" Orientation="Horizontal">
+        <customControls:AddUserToGroupsComboBox 
+            Height="50"
+            Width="200"
+            IsEnabled="{Binding Path=DataContext.CanAddToGroup, ElementName=UserBtnPanel}" 
+            SaveCommand="{Binding Path=DataContext.AddUsersToGroupCommand, ElementName=UserBtnPanel}"
+            Margin="5" />
+    </StackPanel>
+</Window>
